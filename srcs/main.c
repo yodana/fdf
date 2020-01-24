@@ -1,22 +1,13 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include "../minilibx/mlx.h"
 #include "../inc/fdf.h"
-typedef struct    data_s
-{
-    void          *mlx_ptr;
-    void          *mlx_win;
-}                 data_t;
 
-int main(void)
+int main(int ac, char **av)
 {
-    data_t        data;
+    data_t  *data;
 
-    if ((data.mlx_ptr = mlx_init()) == NULL)
-        return (EXIT_FAILURE);
-    if ((data.mlx_win = mlx_new_window(data.mlx_ptr, 640, 480, "Hello world")) == NULL)
-        return (EXIT_FAILURE);
-    mlx_loop(data.mlx_ptr);
-    return (EXIT_SUCCESS);
+    data = (data_t*)malloc(sizeof(data_t));
+    data->mlx_ptr = mlx_init();
+    data->mlx_win = mlx_new_window(data->mlx_ptr, 1920, 1080, "Hello World");  
+   //mlx_pixel_put(data->mlx_ptr, data->mlx_win, 640, 380, 0xE2EDEC);
+    mlx_loop(data->mlx_ptr);
+    return (0);
 }

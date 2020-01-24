@@ -43,7 +43,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(LIB) $(INC) $(OBJ)
-	$(CC) $(CFLAGS) $(SRC) $(LIB) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC) $(LIB) ./minilibx_macos/libmlx.a -o $(NAME) -framework OpenGL -framework Appkit
 	echo "\n✅ $(_GREEN)$(NAME) created$(_END)"
 
 $(LIB): FORCE
